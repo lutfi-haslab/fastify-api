@@ -1,10 +1,20 @@
-const app = require('fastify')({
-  logger: true
-})
+import Fastify from "fastify";
+import cors from "@fastify/cors";
+import * as dotenv from "dotenv";
+import RoutesIndex from "./routes/hello-world.js";
+import RoutesIoT from "./routes/iot-api.js";
 
-const routes = require("./routes/hello-world.js")
+dotenv.config();
+// Instantiate Fastify with some config
+const app = Fastify({
+  logger: true,
+});
 
-app.register(routes);
+app.register(cors, {
+  origin: "*",
+});
+app.register(RoutesIndex);
+app.register(RoutesIoT);
 
 /**
  * Run the server!

@@ -4,12 +4,16 @@
   "description": "learn fastify api",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx nodemon ./api/index.js"
   },
+  "type": "module",
   "author": "lutfi ikbal majid",
   "license": "ISC",
   "dependencies": {
+    "@fastify/cors": "^8.2.0",
+    "dotenv": "^16.0.3",
     "fastify": "^4.7.0",
+    "mysql2": "^2.3.3",
     "nodemon": "^2.0.20"
   }
 }
